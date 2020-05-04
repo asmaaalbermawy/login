@@ -1,0 +1,23 @@
+﻿<h1>
+    Hi {{currentUser.firstName}}!</h1>
+<h2 style="color: black; font-size:x-large;font-weight: 400">You can check an item which you need : </h2>
+<!--<h3>Those are : All registered users:</h3>
+<ul>
+ <li *ngFor="let user of users">
+ {{user.username}} ({{user.firstName}} {{user.lastName}}) - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+ </li>
+</ul>
+<button class="btn btn-danger" (click)="logout() ">Logout</button>-->
+
+<div class="list-group" style="margin-top: 20px">
+    <button type="button" class="list-group-item list-group-item-action active" style="font-size:x-large">
+      Items List
+    </button>
+    <button type="button" class="list-group-item list-group-item-action ">la la 1 <span class="badge badge-primary badge-pill"style="margin-left:35em">New</span>
+    </button>
+    <button type="button" class="list-group-item list-group-item-action">pla pla <span class="badge badge-primary badge-pill"style="margin-left:35em;">10 piece</span></button>
+    <button type="button" class="list-group-item list-group-item-action">lo lo lo <span class="badge badge-primary badge-pill" style="margin-left:35em">2 piece</span> </button>
+    <button type="button" class="list-group-item list-group-item-action">so so so <span class="badge badge-primary badge-pill" style="margin-left:35em">New</span></button>
+    <a routerLink="/register" class="list-group-item list-group-item-action">so so so <span class="badge badge-primary badge-pill"style="margin-left:35em">15 piece</span></a>
+
+</div>

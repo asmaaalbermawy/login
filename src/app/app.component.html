@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<style>
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+        box-shadow: 5px 5px 5px grey;
+    }
+    
+    .navbar-default .navbar-nav>.active {
+        color: #000;
+        background: #d65c14 !important;
+    }
+</style>
+
+
+<nav class="navbar navbar-light" style="background-color:#f60;">
+    <span class="navbar-brand mb-0 h1 text-light" routerLink="/"><i class="fas fa-award"></i> Profile</span>
+    <span class="mr-auto"></span>
+    <button class="btn btn-info mr-2" routerLink="/about">About</button>
+    <button class="btn btn-info" routerLink="/contact">Contact</button>
+    <button class="btn btn-info" style=" margin-left:20px;">Gallery</button>
+    <button class="btn btn-info" style=" margin-left:20px;">Service</button>
+    <button class="btn btn-info" (click)="logout()" style=" margin-left:20px; ">Logout</button>
+</nav>
+<!--Navbar 
+
+<nav class="navbar navbar-light bg-dark ">
+
+    <div class="navbar-nav ">
+        <a class="nav-item nav-link " (click)="logout() " style="color:snow;font-size: larger ">Logout</a>
+
+    </div>
+    <div class="navbar-nav ">
+        <a class="nav-item nav-link " (click)="logout() " style="color:snow;font-size: larger;margin-right:840px ">Home</a>
+
+    </div>
+
+</nav>-->
+
+
+
+<!--<nav class="navbar navbar-expand " *ngIf="currentUser ">
+    <div class="navbar-nav ">
+        <a class="nav-item nav-link " (click)="logout() " style="color: snow;font-size: x-large; ">Logout</a>
+    </div>
+
+    <ul class="navbar-nav ml-auto nav-flex-icons ">
+        <li class="nav-item avatar ">
+            <a class="nav-link p-0 " href="# ">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYDlQgzX5j7_h5d7dTQUfBCf4w0d6YNbN7jCEK3je0qgbIg4cF " class="rounded-circle z-depth-0 " alt="contact image " height="45 " data-toggle="tooltip " data-placement="top
+        " title=" +20-01012240986 ">
+
+            </a>
+        </li>
+    </ul>
+</nav>-->
+
+<!--main app container -->
+<div class="jumbotron ">
+    <div class="container ">
+        <div class="row ">
+            <div class="col-sm-6 offset-sm-3 ">
+                <alert></alert>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+    $(function() {
+        $('.material-tooltip-smaller').tooltip({
+            template: '<div class="tooltip md-tooltip "><div class="tooltip-arrow md-arrow "></div><div class="tooltip-inner md-inner "></div></div>'
+        });
+    })
+</script>

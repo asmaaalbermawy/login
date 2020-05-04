@@ -1,0 +1,122 @@
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    .bg-transparent {
+        background-color: transparent;
+    }
+    
+     :host {
+        height: 100%;
+    }
+    
+    .photo {
+        object-fit: contain;
+    }
+    
+    .card {
+        width: 30rem;
+        margin: 0 auto;
+    }
+    
+    .fa:hover {
+        opacity: 0.7;
+    }
+    
+    .fa-google {
+        background: #dd4b39;
+        color: white;
+        text-align: center;
+        height: 40px;
+        width: 50px;
+        padding-top: 10px;
+    }
+    
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+        text-align: center;
+        height: 40px;
+        width: 50px;
+        padding-top: 10px;
+    }
+    
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+        text-align: center;
+        height: 40px;
+        width: 50px;
+        padding-top: 10px;
+    }
+</style>
+
+<!----start-->
+
+<!----end-->
+<div *ngIf="!user" class="form-group">
+
+    <h1 style="text-align: center;font-size: xx-large; padding-bottom: 17px"> MY REGESTIRE FORM </h1>
+    <h2 style="color: maroon"> Let us know you ...</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="f.password.errors.minlength"> Password must be at least 6 characters</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-info" style="padding-right: 90px; margin-right: 25px;text-align:center;font-size:x-large; ">Register</button>
+            <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+            />
+            <!--   <a routerLink="/login" class="btn btn-info">Login </a>
+      <pre style="padding-top: 20px; font-size: xx-large;"> OR REGISTER WITH </pre>
+        <a href="https://www.facebook.com/" class="fa fa-facebook" style="margin-right: 40px"></a>
+        <a href="https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=528961187921-ld24b25466u4t2lacn9r35asg000lfis.apps.googleusercontent.com&as=IAIL25wnkZX6xJZE2qfgmw&destination=https%3A%2F%2Fangularx-social-login.stackblitz.io&approval_state=!ChRsMHNXdE9GQ2FYWkl2d1E5Sm16RhIfNDMyNHZiSThkU3dTUUhVU2RlLXNqMHg3a3dOc3ZSWQ%E2%88%99AJDr988AAAAAXSXc0qg9wCawxC2cZg4QgX7HePLOfdQ1&oauthgdpr=1&xsrfsig=ChkAeAh8T7Ye8NoKQ8yGpCr-caLVx4WXT4QIEg5hcHByb3ZhbF9zdGF0ZRILZGVzdGluYXRpb24SBXNvYWN1Eg9vYXV0aHJpc2t5c2NvcGU&flowName=GeneralOAuthFlow"
+            class="fa fa-google"></a>-->
+            <button class="btn btn-social-icon btn-google" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button>
+            <button class="btn btn-social-icon btn-twitter" (click)="signInWithGoogle()" style="margin-left: 20px"><span class="fa fa-twitter"></span></button>
+            <button class="btn btn-social-icon btn-facebook " (click)="signInWithGoogle()" style="margin-left: 20px"><span class="fa fa-facebook "></span></button>
+        </div>
+    </form>
+</div>
+
+<div class=" bg-transparent text-center" style="background-image: url(images/4.jpg)">
+    <div *ngIf="user" class="card text-center">
+        <h6 class="card-header" style="color:#a00579; font-size: larger">
+            Register Social Login
+        </h6>
+        <div class="card-block"></div>
+        <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+        <div class="card-block">
+            <h4 class="card-title">{{ user.name }}</h4>
+            <p class="card-text">{{ user.email }}</p>
+        </div>
+        <div class="card-block">
+            <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+        </div>
+    </div>
+
+</div>
